@@ -17,4 +17,4 @@ Putting it all together as follows:
 
 yields a series of a few hundred frames from the video, each frame in a file having a name like frame_0####.png
 
-See a few examples in [images](https://github.com/KarlEdwards/Practical-VLC/images.git)
+See a few examples in [images](https://github.com/KarlEdwards/Practical-VLC/blob/master/images/)
