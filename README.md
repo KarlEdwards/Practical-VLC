@@ -6,8 +6,11 @@ Examples illustrating manipulation of videos using VLC.
 ## Parameters
 
 Input: `~/VLC_stuff/2015bsVriot.mp4`
+
 Start time ( seconds from beginning of video ): `3600`
+
 Duration( seconds ): `60`
+
 Output: `./` ( current directory )
 
 ## Execution
