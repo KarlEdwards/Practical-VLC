@@ -10,6 +10,7 @@
 # -----------------------------------------------
 
 digits='^[0-9]+$'
+FILE_PREFIX='frame_'
 REQUIRED_ARGS=2
 FINE_GRAINED=3    # About 10 frames per second
 COURSE_GRAINED=30 # About 1 frame per second
@@ -68,7 +69,7 @@ fi
 # -----------------------------------------------
 
 # Construct a command to extract an excerpt of the video as a series of images
-echo vlc $video_file  --start-time $start_time_seconds --run-time $run_time_seconds --sout \'#transcode{ vfilter = scene{ ratio = $FRAME_RATIO, prefix = minute_x_, path = $output_path, out=dummy }, vcodec = theo, vb = 2000,scale = 1.0, acodec = none }:standard{ access = file, mux = ogg, dst = \"dummy.ogg\" }\' vlc://quit > tmp.sh
+echo vlc $video_file  --start-time $start_time_seconds --run-time $run_time_seconds --sout \'#transcode{ vfilter = scene{ ratio = $FRAME_RATIO, prefix = $FILE_PREFIX, path = $output_path, out=dummy }, vcodec = theo, vb = 2000,scale = 1.0, acodec = none }:standard{ access = file, mux = ogg, dst = \"dummy.ogg\" }\' vlc://quit > tmp.sh
 
 # Now execute the command
 sh tmp.sh
@@ -79,7 +80,7 @@ sh tmp.sh
 
 # With ratio=3 ...
 # sh excerpt.sh ~/VLC_stuff/2015bsVriot.mp4 ~/VLC_stuff/frames/2015bsVriot_play/ 305 55
-# generated 605 images
-# should be 458 images ( 55 sec x 25 frames per second, ratio = 1 for every 3 )
+# generated 630 images
+# should be 550 images ( 55 sec x 30 frames per second, ratio = 1 for every 3 )
 # from about 5:05 to 6:04
 # should be  5:05 to 6:00 = 55 seconds
